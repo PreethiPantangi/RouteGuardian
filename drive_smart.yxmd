@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.1">
+  <Nodes>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="102" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\*.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>*.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="STATE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="STATENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ST_CASE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VEH_NO" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VE_FORMS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="NUMOCCS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="NUMOCCSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DAY" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DAYNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MONTH" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MONTHNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HOUR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HOURNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MINUTE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MINUTENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HARM_EV" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HARM_EVNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAN_COLL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAN_COLLNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="UNITTYPE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="UNITTYPENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HIT_RUN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HIT_RUNNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="REG_STAT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="REG_STATNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="OWNER" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="OWNERNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAKE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAKENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MODEL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAK_MOD" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MAK_MODNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="BODY_TYP" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="BODY_TYPNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MOD_YEAR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MOD_YEARNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_3" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_4" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_5" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_6" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_7" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_8" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_9" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_10" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_11" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VIN_12" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TOW_VEH" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TOW_VEHNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="J_KNIFE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="J_KNIFENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_I1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_I1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_I2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_I2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_ID" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="MCARR_IDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="GVWR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="GVWRNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="V_CONFIG" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="V_CONFIGNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="CARGO_BT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="CARGO_BTNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_INV" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_INVNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_PLAC" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_PLACNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_ID" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_IDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_CNO" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_CNONAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_REL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="HAZ_RELNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="BUS_USE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="BUS_USENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="SPEC_USE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="SPEC_USENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="EMER_USE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="EMER_USENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRAV_SP" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRAV_SPNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="UNDERIDE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="UNDERIDENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ROLLOVER" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ROLLOVERNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ROLINLOC" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ROLINLOCNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="IMPACT1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="IMPACT1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DEFORMED" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DEFORMEDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TOWED" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TOWEDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="M_HARM" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="M_HARMNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VEH_SC1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VEH_SC1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VEH_SC2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VEH_SC2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRE_EXP" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRE_EXPNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_PRES" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_PRESNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_STATE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_STATENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_ZIP" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_ZIPNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_STATUS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_STATUSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_TYPE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_TYPENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="CDL_STAT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="CDL_STATNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_ENDORS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_ENDORSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_COMPL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_COMPLNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_RESTRI" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="L_RESTRINAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_HGT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_HGTNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_WGT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_WGTNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_ACC" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_ACCNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_SUS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_SUSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_DWI" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_DWINAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_SPD" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_SPDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_OTH" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PREV_OTHNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRST_MO" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRST_MONAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRST_YR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="FIRST_YRNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="LAST_MO" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="LAST_MONAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="LAST_YR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="LAST_YRNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="SPEEDREL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="SPEEDRELNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF3" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF3NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF4" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_SF4NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTRAFWAY" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTRAFWAYNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VNUM_LAN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VNUM_LANNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VSPD_LIM" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VSPD_LIMNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VALIGN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VALIGNNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VPROFILE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VPROFILENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VPAVETYP" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VPAVETYPNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VSURCOND" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VSURCONDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTRAFCON" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTRAFCONNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTCONT_F" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="VTCONT_FNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH3" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="P_CRASH3NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PCRASH4" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PCRASH4NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PCRASH5" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="PCRASH5NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ACC_TYPE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="ACC_TYPENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DEATHS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_DRINK" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="DR_DRINKNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR1VIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR1VINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR2VIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR2VINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR3VIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+            <Field name="TRLR3VINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\vehicle\vehicle_17.CSV" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="114" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\*.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>*.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="STATE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="STATENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ST_CASE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="VE_TOTAL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="VE_FORMS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="PVH_INVL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="PEDS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="PERSONS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="PERMVIT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="PERNOTMVIT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="COUNTY" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="COUNTYNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CITY" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CITYNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="DAY" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="DAYNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MONTH" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MONTHNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="YEAR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="DAY_WEEK" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="DAY_WEEKNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOUR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOURNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MINUTE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MINUTENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NHS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NHSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ROUTE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ROUTENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="TWAY_ID" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="TWAY_ID2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RUR_URB" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RUR_URBNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="FUNC_SYS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="FUNC_SYSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RD_OWNER" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RD_OWNERNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MILEPT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MILEPTNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LATITUDE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LATITUDENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LONGITUD" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LONGITUDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="SP_JUR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="SP_JURNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HARM_EV" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HARM_EVNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MAN_COLL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="MAN_COLLNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RELJCT1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RELJCT1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RELJCT2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RELJCT2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="TYP_INT" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="TYP_INTNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WRK_ZONE" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WRK_ZONENAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="REL_ROAD" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="REL_ROADNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LGT_COND" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="LGT_CONDNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHER1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHER1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHER2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHER2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHER" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="WEATHERNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="SCH_BUS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="SCH_BUSNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RAIL" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="RAILNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NOT_HOUR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NOT_HOURNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NOT_MIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="NOT_MINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ARR_HOUR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ARR_HOURNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ARR_MIN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="ARR_MINNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOSP_HR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOSP_HRNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOSP_MN" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="HOSP_MNNAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF1" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF1NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF2" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF2NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF3" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="CF3NAME" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="FATALS" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+            <Field name="DRUNK_DR" size="254" source="File: C:\Users\panta\Downloads\nifi-1.23.2\data_in\accident\accident_17.CSV" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="234" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\panta\AppData\Local\Temp\Engine_34192_3c3e8b5e14f65b4fafaa614f3e298aab_\Engine_34192_37fec2bf3ddcaa4aa99e23e1f847096a~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="294" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="ST_CASE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="ST_CASE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_STATE" selected="True" rename="Right_STATE" input="Right_" />
+                <SelectField field="Right_STATENAME" selected="True" rename="Right_STATENAME" input="Right_" />
+                <SelectField field="Right_ST_CASE" selected="True" rename="Right_ST_CASE" input="Right_" />
+                <SelectField field="Right_VE_FORMS" selected="True" rename="Right_VE_FORMS" input="Right_" />
+                <SelectField field="Right_DAY" selected="True" rename="Right_DAY" input="Right_" />
+                <SelectField field="Right_DAYNAME" selected="True" rename="Right_DAYNAME" input="Right_" />
+                <SelectField field="Right_MONTH" selected="True" rename="Right_MONTH" input="Right_" />
+                <SelectField field="Right_MONTHNAME" selected="True" rename="Right_MONTHNAME" input="Right_" />
+                <SelectField field="Right_HOUR" selected="True" rename="Right_HOUR" input="Right_" />
+                <SelectField field="Right_HOURNAME" selected="True" rename="Right_HOURNAME" input="Right_" />
+                <SelectField field="Right_MINUTE" selected="True" rename="Right_MINUTE" input="Right_" />
+                <SelectField field="Right_MINUTENAME" selected="True" rename="Right_MINUTENAME" input="Right_" />
+                <SelectField field="Right_HARM_EV" selected="True" rename="Right_HARM_EV" input="Right_" />
+                <SelectField field="Right_HARM_EVNAME" selected="True" rename="Right_HARM_EVNAME" input="Right_" />
+                <SelectField field="Right_MAN_COLL" selected="True" rename="Right_MAN_COLL" input="Right_" />
+                <SelectField field="Right_MAN_COLLNAME" selected="True" rename="Right_MAN_COLLNAME" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="390" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\panta\AppData\Local\Temp\Engine_34192_3c3e8b5e14f65b4fafaa614f3e298aab_\Engine_34192_6266b701151d354ca5d0fb9aeda49b95~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="378" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="STATE" selected="True" />
+            <SelectField field="STATENAME" selected="True" />
+            <SelectField field="ST_CASE" selected="True" />
+            <SelectField field="DAY" selected="True" />
+            <SelectField field="MONTH" selected="True" />
+            <SelectField field="HOUR" selected="True" />
+            <SelectField field="HARM_EVNAME" selected="True" />
+            <SelectField field="MAKENAME" selected="True" />
+            <SelectField field="MAK_MODNAME" selected="True" />
+            <SelectField field="LATITUDE" selected="True" type="FixedDecimal" size="19.3" />
+            <SelectField field="LONGITUD" selected="True" type="FixedDecimal" size="19.3" />
+            <SelectField field="WEATHERNAME" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="474" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\panta\AppData\Local\Temp\Engine_34192_3c3e8b5e14f65b4fafaa614f3e298aab_\Engine_34192_9a248e0a8ab371479850db36c031a05a~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxConnectorGui.AmazonS3Upload.AmazonS3Upload">
+        <Position x="678" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Bucket>route-gaurdian</Bucket>
+          <Object>alt_s3.json</Object>
+          <Connection DcmType="ConnectionId">906d7985-5d1b-4c04-961c-9fecfdbf435b</Connection>
+          <AuthenticationMethod>AWSIAMAccessKeys</AuthenticationMethod>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+          <FileFormat value="54" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxAmazonS3Upload" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="8" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Join" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Join" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>drive_smart</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="bff6c207-851f-4369-a8fe-2713ee9a15bc" />
+      <Telemetry>
+        <PreviousWorkflowId value="74d9d66f-fc89-4514-a07c-a3b6b05f961f" />
+        <OriginWorkflowId value="74d9d66f-fc89-4514-a07c-a3b6b05f961f" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

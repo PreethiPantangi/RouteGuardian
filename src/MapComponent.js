@@ -47,7 +47,7 @@ const MapComponent = () => {
 
   const calculateAndDisplayRoute = (getMap) => {
     if (!directionsServiceRef.current || !directionsRendererRef.current) return;
-
+    setCalculatingCrashes(true);
     directionsServiceRef.current
       .route({
         origin: {
@@ -106,7 +106,6 @@ const MapComponent = () => {
 
         let routesData = routes;
         console.log("Start - ", new Date());
-        setCalculatingCrashes(true);
         routesData.forEach((route) => {
           let crashWarningsData = [];
           let maxRecords = -1;
@@ -237,6 +236,17 @@ const MapComponent = () => {
           {/* Child components, markers, etc. */}
           {calculatingCrashes && <div className="z-10 font-bold text-2xl">Loading all possible routes</div>}
         </GoogleMap>
+        {calculatingCrashes && console.log("loading")}
+          {calculatingCrashes && (
+            <div className="flex justify-center items-center">
+              <div className="mb-20 absolute inset-0 flex justify-center items-center">
+                <div className="animate-spin h-8 w-8 border-t-2 border-black border-r-2 rounded-full"></div>
+              </div>
+              <div className="z-10 font-bold text-2xl bg-white opacity-75 absolute inset-0 flex justify-center items-center">
+                Loading all possible routes...
+              </div>
+            </div>
+           )}
         </div>  
       </LoadScript>
     </div>
