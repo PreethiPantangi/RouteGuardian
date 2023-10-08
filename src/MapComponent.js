@@ -160,7 +160,49 @@ const MapComponent = () => {
 
   return (
     <div>
-      <div className="flex space-x-52 m-5">
+      <div className="flex flex-col space-y-5 md:flex-row md:space-y-0 md:space-x-5 md:m-5">
+  <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-5">
+    <div className="mt-1 font-semibold">Source</div>
+    <div className="border border-slate-400 p-1 rounded-sm">
+      <select id="start">
+        <option value="chicago, il">Chicago</option>
+        <option value="st louis, mo">St Louis</option>
+        <option value="joplin, mo">Joplin, MO</option>
+        <option value="oklahoma city, ok">Oklahoma City</option>
+        <option value="amarillo, tx">Amarillo</option>
+        <option value="gallup, nm">Gallup, NM</option>
+        <option value="flagstaff, az">Flagstaff, AZ</option>
+        <option value="winona, az">Winona</option>
+        <option value="kingman, az">Kingman</option>
+        <option value="barstow, ca">Barstow</option>
+        <option value="san bernardino, ca">San Bernardino</option>
+        <option value="los angeles, ca">Los Angeles</option>
+      </select>
+    </div>
+  </div>
+  <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-5">
+    <div className="mt-1 font-semibold">Destination</div>
+    <div className="border border-slate-400 p-1 rounded-sm">
+      <select id="end">
+        <option value="Select destination">Select destination</option>
+        <option value="fairfax, va">Fairfax</option>
+        <option value="st louis, mo">St Louis</option>
+        <option value="joplin, mo">Joplin, MO</option>
+        <option value="oklahoma city, ok">Oklahoma City</option>
+        <option value="amarillo, tx">Amarillo</option>
+        <option value="gallup, nm">Gallup, NM</option>
+        <option value="flagstaff, az">Flagstaff, AZ</option>
+        <option value="winona, az">Winona</option>
+        <option value="kingman, az">Kingman</option>
+        <option value="barstow, ca">Barstow</option>
+        <option value="san bernardino, ca">San Bernardino</option>
+        <option value="los angeles, ca">Los Angeles</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+      {/* <div className="flex space-x-52 m-5">
         <div className="flex space-x-5">
           <div className="mt-1 font-semibold">Source</div>
           <div className="border border-slate-400 p-1 rounded-sm">
@@ -200,7 +242,7 @@ const MapComponent = () => {
             </select>
           </div>
         </div>
-      </div>
+      </div> */}
       <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow">
         <div className="border border-black m-3 p-2">
         <GoogleMap
