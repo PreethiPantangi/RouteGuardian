@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { GoogleMap, LoadScript, HeatmapLayer } from '@react-google-maps/api';
+import React, { useEffect, useState } from 'react';
+import { GoogleMap, HeatmapLayer, LoadScript } from '@react-google-maps/api';
 import alt_s3 from './alt_s3.json'; 
 
-const libraries = ["visualization"];
-
-const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh',
+const containerStyle = {
+  height: "600px",
 };
 
 const center = {
@@ -17,7 +14,7 @@ const center = {
 export default function HeatMap() {
 
     const [gMap, setGMap] = useState(null);
-    const coordsRef = useRef([]);
+    const [coordsData, setCoordsDdata] = useState(null);
  
     useEffect(() => {
       if(gMap) {
@@ -30,7 +27,7 @@ export default function HeatMap() {
       for (const record of alt_s3) {
         coords.push(new window.google.maps.LatLng(record.LATITUDE, record.LONGITUD));
       }
-      coordsRef.current = coords.splice(0,80000);
+      setCoordsDdata(coords.splice(0,80000));
     }
 
     const onLoad = (map) => {
@@ -39,17 +36,18 @@ export default function HeatMap() {
 
   return (
     <>
-      <div>Heat Map</div>
-    <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow" libraries={libraries}>
-    <GoogleMap
-      id="heatmap"
-      mapContainerStyle={mapContainerStyle}
-      zoom={4}
-      center={center}
-      onLoad={onLoad}
-    >
-        {coordsRef.current.length > 0 && <HeatmapLayer data={coordsRef.current} />} 
-    </GoogleMap>
+      <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow" libraries={["visualization"]}>
+      <div className="border border-black m-3 p-2">
+        <GoogleMap
+        id="heatmap"
+        mapContainerStyle={containerStyle}
+        zoom={4}
+        center={center}
+        onLoad={onLoad}
+      >
+          {coordsData && coordsData.length > 0 ? <HeatmapLayer data={coordsData}/> : <div>Loading.......</div>} 
+      </GoogleMap>
+      </div>
     </LoadScript>
     </>
   );
