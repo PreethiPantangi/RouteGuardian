@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import HeatMap from './HeatMap';
 import MapComponent from './MapComponent';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       Route Guardian
-      <MapComponent/>
+      <HeatMap/>
     </div>
   );
 }

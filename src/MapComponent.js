@@ -75,13 +75,20 @@ const MapComponent = () => {
       })
       .then((result) => {
 
+        console.log(result);
         directionsRendererRef.current.setDirections(result);
         directionsRendererRef.current.setOptions({
           polylineOptions: {
             strokeColor: '#65ace6'
           }
         });
-        let routes = [result.routes[1], result.routes[2]];
+        let routes = [];
+        if(result.routes[1]) {
+          routes.push(result.routes[1])
+        } else if (result.routes[2]) {
+          routes.push(result.routes[2]);
+        }
+        console.log(routes);
         let _routes = [];
 
         let routesData = result.routes[0].overview_path;
@@ -99,6 +106,7 @@ const MapComponent = () => {
         (shuffled.slice(min)).forEach((coord) => {
           latlng.push({lat: coord.lat(), lng: coord.lng()});
         });
+        console.log(latlng);
         
       let data = [];
 
