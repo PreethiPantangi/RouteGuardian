@@ -94,7 +94,6 @@ const MapComponent = () => {
           for (const record of alt_s3) {
             const recordLat = parseFloat(record.LATITUDE);
             const recordLng = parseFloat(record.LONGITUD);
-
             if (
               !isNaN(recordLat) &&
               !isNaN(recordLng) &&
@@ -119,7 +118,6 @@ const MapComponent = () => {
           let crashWarningsData = [];
           let maxRecords = -1;
           let coords = (route.overview_path);
-          console.log(coords);
           coords.forEach((coord) => {
             let coordInfo = searchByCoordinates(coord.lat(), coord.lng());
             if (coordInfo) {
@@ -130,9 +128,6 @@ const MapComponent = () => {
             }
           });
           const medianRecords = maxRecords/2;
-          console.log("maxLenRecords : ", maxRecords);
-          console.log("medianRecords : ", medianRecords);
-          console.log('______________________');
 
           let data = [];
 
@@ -141,7 +136,7 @@ const MapComponent = () => {
               strokeColor: "#FF0000",
               strokeOpacity: 0.8,
               strokeWeight: 2,
-              fillColor: findWarningColors(warning),
+              fillColor: findWarningColors(warning, medianRecords),
               fillOpacity: 0.35,
               map: getMap(),
               center: warning.coords,
