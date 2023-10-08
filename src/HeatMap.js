@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GoogleMap, LoadScript, HeatmapLayer } from '@react-google-maps/api';
 
 const libraries = ["visualization"];
@@ -16,7 +16,7 @@ const center = {
 export default function Map() {
 
     const [gMap, setGMap] = useState(null);
-    const [heatMapData, setHeatMapData] = useState([])
+    let heatMapData = useRef([])
  
     useEffect(() => {
         const data = [
@@ -521,25 +521,17 @@ export default function Map() {
             new window.google.maps.LatLng(37.752986,-122.403112),
             new window.google.maps.LatLng(37.751266,-122.403355),
             ];
-        setHeatMapData(data);
+            heatMapData = data;
     }, [gMap])
 
     const onLoad = (map) => {
         setGMap(map);
-
     }
 
-    
-//   const { isLoaded, loadError } = useLoadScript({
-//     googleMapsApiKey: "AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow", // Replace with your API key
-//     libraries,
-//   });
-
-//   if (loadError) return "Error loading maps";
-//   if (!isLoaded) return "Loading Maps";
-
   return (
-    <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow" libraries={["visualization"]}>
+    <>
+      <div>Heat Map</div>
+    <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow" libraries={libraries}>
     <GoogleMap
       id="heatmap"
       mapContainerStyle={mapContainerStyle}
@@ -550,5 +542,6 @@ export default function Map() {
         {heatMapData && <HeatmapLayer data={heatMapData} />} {/* Ensure HeatmapLayer is used only after maps are loaded */}
     </GoogleMap>
     </LoadScript>
+    </>
   );
 }
