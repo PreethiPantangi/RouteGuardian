@@ -133,7 +133,7 @@ const MapComponent = () => {
               fillOpacity: 0.35,
               map: getMap(),
               center: warning.coords,
-              radius: Math.sqrt(200) * 100,
+              radius: Math.sqrt(2000) * 100,
             });
             data.push(warningCircle);
           });
@@ -178,7 +178,7 @@ const MapComponent = () => {
           <div className="mt-1 font-semibold">Source</div>
           <div className="border border-slate-400 p-1 rounded-sm">
             <select id="start">
-              <option value="fairfax, va">Fairfax</option>
+              <option value="chicago, il">Chicago</option>
               <option value="st louis, mo">St Louis</option>
               <option value="joplin, mo">Joplin, MO</option>
               <option value="oklahoma city, ok">Oklahoma City</option>
@@ -198,7 +198,7 @@ const MapComponent = () => {
           <div className="border border-slate-400 p-1 rounded-sm">
             <select id="end">
               <option value="Select deatination">Select destination</option>
-              <option value="chicago, il">Chicago</option>
+              <option value="fairfax, va">Fairfax</option>
               <option value="st louis, mo">St Louis</option>
               <option value="joplin, mo">Joplin, MO</option>
               <option value="oklahoma city, ok">Oklahoma City</option>
