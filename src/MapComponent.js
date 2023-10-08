@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
 
 
@@ -22,27 +22,47 @@ const center = { lat: 41.85, lng: -87.65 };
 
 const MapComponent = () => {
 
-  const [carshWarnings, setCrashWarnings] = useState([]);
+  const carshWarningsRef = useRef([]);
+  const [gMap, setGMap] = useState();
+  const directionsServiceRef = useRef(null);
+  const directionsRendererRef = useRef(null);
 
-  const onLoad = (map) => {
-    const directionsService = new window.google.maps.DirectionsService();
-    const directionsRenderer = new window.google.maps.DirectionsRenderer();
+  useEffect(() => {
+    if(gMap) {
 
-    directionsRenderer.setMap(map);
+      const startElement = document.getElementById("start");
+      const endElement = document.getElementById("end");
+  
+      if (startElement && endElement) {
+        startElement.addEventListener("change", () => {
+          onChangeHandler(gMap);
+        });
+        endElement.addEventListener("change", () => {
+          onChangeHandler(gMap);
+        });
+      }
 
-    const onChangeHandler = () => {
-      carshWarnings.forEach((circle) => {
-        circle.setMap(null);
-      });
-      calculateAndDisplayRoute(directionsService, directionsRenderer);
-    };
+      directionsServiceRef.current = new window.google.maps.DirectionsService();
+    directionsRendererRef.current = new window.google.maps.DirectionsRenderer();
+    loadMaps();
+  
+      return () => {
+        if (startElement && endElement) {
+          startElement.removeEventListener("change", onChangeHandler);
+          endElement.removeEventListener("change", onChangeHandler);
+        }
+      };
 
-    document.getElementById("start").addEventListener("change", onChangeHandler);
-    document.getElementById("end").addEventListener("change", onChangeHandler);
+      
+    }
+  }, [gMap]);
+    
 
-    const calculateAndDisplayRoute = (directionsService, directionsRenderer) => {
-      // console.log(carshWarnings);
-      directionsService.route({
+    const calculateAndDisplayRoute = (getMap) => {
+
+      if (!directionsServiceRef.current || !directionsRendererRef.current) return;
+
+      directionsServiceRef.current.route({
         origin: {
           query: document.getElementById("start").value,
         },
@@ -52,8 +72,7 @@ const MapComponent = () => {
         travelMode: window.google.maps.TravelMode.DRIVING,
       })
       .then((response) => {
-        console.log(response);
-        directionsRenderer.setDirections(response);
+        directionsRendererRef.current.setDirections(response);
         let coords = response.routes[0].overview_path[99];
         let coords1 = response.routes[0].overview_path[60];
         let coords2 = response.routes[0].overview_path[30];
@@ -72,18 +91,37 @@ const MapComponent = () => {
             strokeWeight: 2,
             fillColor: warning.severity,
             fillOpacity: 0.35,
-            map: map,
+            map: getMap(),
             center: warning.coords,
             radius: Math.sqrt(20000) * 100,
           });
           data.push(warningCircle);
         });
-        // console.log(data);
-        setCrashWarnings(data);
+        carshWarningsRef.current = data;
       })
       .catch((e) => window.alert("Directions request failed due to " + e));
     };
-  };
+
+    const onChangeHandler = (gMap) => {
+      console.log(carshWarningsRef.current);
+      debugger;
+      carshWarningsRef.current.forEach((circle) => {
+        circle && circle.setMap && circle.setMap(null);
+      });
+      carshWarningsRef.current = [];
+      calculateAndDisplayRoute(() => gMap);
+    };
+  
+    const loadMaps = () => {
+      if (gMap && directionsRendererRef.current) {
+        directionsRendererRef.current.setMap(gMap);
+      }
+    };
+
+    
+    const onLoad = (map) => {
+      setGMap(map);
+    };
 
   return (
     
