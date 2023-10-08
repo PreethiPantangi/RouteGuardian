@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { GoogleMap, LoadScript, Polyline } from "@react-google-maps/api";
-import alt_s3 from "./alt_s3.json";
+import DataContext from "./DataContext";
 
 const containerStyle = {
   height: "510px",
@@ -16,7 +16,9 @@ const MapComponent = () => {
   const directionsRendererRef = useRef(null);
   const [multipleRoutes, setMultipleRoutes] = useState([]);
   const [calculatingCrashes, setCalculatingCrashes] = useState(false);
-
+  const data = useContext(DataContext);
+  const mapData = data.mapData;
+  
   useEffect(() => {
     if (gMap) {
       const startElement = document.getElementById("start");
@@ -75,27 +77,9 @@ const MapComponent = () => {
         setMultipleRoutes(overviewPaths);
 
         const searchByCoordinates = (latitude, longitude) => {
-          let results = [];
-          for (const record of alt_s3) {
-            const recordLat = parseFloat(record.LATITUDE);
-            const recordLng = parseFloat(record.LONGITUD);
-            if (
-              !isNaN(recordLat) &&
-              !isNaN(recordLng) &&
-              parseFloat(record.LATITUDE).toFixed(3) ===
-                parseInt(latitude).toFixed(3) &&
-              parseInt(record.LONGITUD).toFixed(3) ===
-                parseInt(longitude).toFixed(3)
-            ) {
-              results.push(record);
-            }
-          }
-          return results.length > 0
-            ? {
-                coords: { lat: latitude, lng: longitude },
-                length: results.length,
-              }
-            : undefined;
+          const lat = parseFloat(latitude).toFixed(2);
+          const lng = parseFloat(longitude).toFixed(2)
+          return mapData.get(lat + '_' + lng);
         };
 
         const findWarningColors = (warning, medianRecords) => {
@@ -105,24 +89,29 @@ const MapComponent = () => {
         };
 
         let routesData = routes;
-        console.log("Start - ", new Date());
         routesData.forEach((route) => {
           let crashWarningsData = [];
           let maxRecords = -1;
           let coords = route.overview_path;
           coords.forEach((coord) => {
             let coordInfo = searchByCoordinates(coord.lat(), coord.lng());
+            debugger;
             if (coordInfo) {
-              if (coordInfo.length > maxRecords) {
-                maxRecords = coordInfo.length;
+              if (coordInfo.count > maxRecords) {
+                maxRecords = coordInfo.count;
               }
-              crashWarningsData.push(coordInfo);
+              debugger;
+              (coordInfo.coords).forEach((coord) => {
+                debugger;
+                crashWarningsData.push(new window.google.maps.LatLng(coord.lat,coord.lng));
+              })
             }
           });
           const medianRecords = maxRecords / 2;
 
           let data = [];
 
+          // debugger;
           crashWarningsData.forEach((warning) => {
             const warningCircle = new window.google.maps.Circle({
               strokeColor: "#FF0000",
@@ -131,14 +120,13 @@ const MapComponent = () => {
               fillColor: findWarningColors(warning, medianRecords),
               fillOpacity: 0.35,
               map: getMap(),
-              center: warning.coords,
+              center: warning,
               radius: Math.sqrt(2000) * 100,
             });
             data.push(warningCircle);
           });
           crashWarningsRef.current.push(...data);
         });
-        console.log("Finish - ", new Date());
         setCalculatingCrashes(false);
       })
       .catch((e) => window.alert("Directions request failed due to " + e));
@@ -236,9 +224,10 @@ const MapComponent = () => {
           {/* Child components, markers, etc. */}
           {calculatingCrashes && <div className="z-10 font-bold text-2xl">Loading all possible routes</div>}
         </GoogleMap>
+        </div>  
         {calculatingCrashes && console.log("loading")}
           {calculatingCrashes && (
-            <div className="flex justify-center items-center">
+            <div class="flex justify-center items-center">
               <div className="mb-20 absolute inset-0 flex justify-center items-center">
                 <div className="animate-spin h-8 w-8 border-t-2 border-black border-r-2 rounded-full"></div>
               </div>
@@ -247,7 +236,6 @@ const MapComponent = () => {
               </div>
             </div>
            )}
-        </div>  
       </LoadScript>
     </div>
   );
