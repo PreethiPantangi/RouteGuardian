@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Polyline } from '@react-google-maps/api';
 
 
 const containerStyle = {
@@ -23,9 +23,12 @@ const center = { lat: 41.85, lng: -87.65 };
 const MapComponent = () => {
 
   const carshWarningsRef = useRef([]);
+  // const multipleRoutes = useRef([]);
   const [gMap, setGMap] = useState();
   const directionsServiceRef = useRef(null);
   const directionsRendererRef = useRef(null);
+  const [multipleRoutes, setMultipleRoutes] = useState([]);
+
 
   useEffect(() => {
     if(gMap) {
@@ -43,8 +46,8 @@ const MapComponent = () => {
       }
 
       directionsServiceRef.current = new window.google.maps.DirectionsService();
-    directionsRendererRef.current = new window.google.maps.DirectionsRenderer();
-    loadMaps();
+      directionsRendererRef.current = new window.google.maps.DirectionsRenderer();
+      loadMaps();
   
       return () => {
         if (startElement && endElement) {
@@ -52,8 +55,6 @@ const MapComponent = () => {
           endElement.removeEventListener("change", onChangeHandler);
         }
       };
-
-      
     }
   }, [gMap]);
     
@@ -70,12 +71,44 @@ const MapComponent = () => {
           query: document.getElementById("end").value,
         },
         travelMode: window.google.maps.TravelMode.DRIVING,
+        provideRouteAlternatives: true,
       })
-      .then((response) => {
-        directionsRendererRef.current.setDirections(response);
-        let coords = response.routes[0].overview_path[99];
-        let coords1 = response.routes[0].overview_path[60];
-        let coords2 = response.routes[0].overview_path[30];
+      .then((result) => {
+
+        directionsRendererRef.current.setDirections(result);
+        directionsRendererRef.current.setOptions({
+          polylineOptions: {
+            strokeColor: '#65ace6'
+          }
+        });
+        let routes = [result.routes[1], result.routes[2]];
+        let _routes = [];
+
+        let routesData = result.routes[0].overview_path;
+
+        let shuffled = routesData, i = routesData.length, min = i - 15, temp, index;
+        while (i-- > min) {
+          index = Math.floor((i + 1) * Math.random());
+          temp = shuffled[index];
+          shuffled[index] = shuffled[i];
+          shuffled[i] = temp;
+        }
+
+        let latlng = [];
+
+        (shuffled.slice(min)).forEach((coord) => {
+          latlng.push({lat: coord.lat(), lng: coord.lng()});
+        });
+        
+      let data = [];
+
+      routes.forEach((route) => {
+        
+        _routes.push(route.overview_path);
+
+        let coords = route.overview_path[99];
+        let coords1 = route.overview_path[60];
+        let coords2 = route.overview_path[30];
 
         let carshWarningsData = [
           { coords: {lat: coords.lat(), lng: coords.lng()}, severity: 'red' },
@@ -83,7 +116,6 @@ const MapComponent = () => {
           { coords: {lat: coords2.lat(), lng: coords2.lng()}, severity: 'yellow' },
         ]
 
-        let data = []
         carshWarningsData.forEach((warning) => {
           const warningCircle = new window.google.maps.Circle({
             strokeColor: "#FF0000",
@@ -98,13 +130,19 @@ const MapComponent = () => {
           data.push(warningCircle);
         });
         carshWarningsRef.current = data;
+
+      })
+      setMultipleRoutes(_routes);
       })
       .catch((e) => window.alert("Directions request failed due to " + e));
     };
 
     const onChangeHandler = (gMap) => {
-      console.log(carshWarningsRef.current);
-      debugger;
+      if(document.getElementById('start').value === document.getElementById('end').value) {
+        alert("Please make sure source and destination are different!");
+        return;
+      }
+
       carshWarningsRef.current.forEach((circle) => {
         circle && circle.setMap && circle.setMap(null);
       });
@@ -118,7 +156,6 @@ const MapComponent = () => {
       }
     };
 
-    
     const onLoad = (map) => {
       setGMap(map);
     };
@@ -168,6 +205,14 @@ const MapComponent = () => {
           onLoad={onLoad}
           id="map"
         >
+          {multipleRoutes?.length > 0 && multipleRoutes.map((route, index) => (
+  <Polyline 
+    key={index} 
+    path={route.map(coord => { return {lat: coord.lat(), lng: coord.lng()} })} 
+    options={{ strokeColor: '#65ace6' }} 
+  />
+))}
+
           { /* Child components, markers, etc. */}
         </GoogleMap>
       </LoadScript>
