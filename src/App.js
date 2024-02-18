@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import MapComponent from './MapComponent';
 import HeatMap from './HeatMap';
-import Header from './Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import alt_s3 from './alt_s3.json'
 import DataContext from './DataContext';
@@ -34,7 +33,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
         <DataContext.Provider value={{mapData: mapData}}>
         <Routes>
           <Route path="/" element={<MapComponent />} />

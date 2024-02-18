@@ -1,9 +1,19 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { GoogleMap, LoadScript, Polyline } from "@react-google-maps/api";
 import DataContext from "./DataContext";
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
+import Fab from '@mui/material/Fab';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import Switch from '@mui/material/Switch';
+import { styled } from '@mui/material/styles';
 
 const containerStyle = {
-  height: "510px",
+  height: "100vh"
 };
 
 const center = { lat: 41.85, lng: -87.65 };
@@ -132,6 +142,64 @@ const MapComponent = () => {
       .catch((e) => window.alert("Directions request failed due to " + e));
   };
 
+  const IOSSwitch = styled((props) => (
+    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+  ))(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    '& .MuiSwitch-switchBase': {
+      padding: 0,
+      margin: 2,
+      transitionDuration: '300ms',
+      '&.Mui-checked': {
+        transform: 'translateX(16px)',
+        color: '#fff',
+        '& + .MuiSwitch-track': {
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+          opacity: 1,
+          border: 0,
+        },
+        '&.Mui-disabled + .MuiSwitch-track': {
+          opacity: 0.5,
+        },
+      },
+      '&.Mui-focusVisible .MuiSwitch-thumb': {
+        color: '#33cf4d',
+        border: '6px solid #fff',
+      },
+      '&.Mui-disabled .MuiSwitch-thumb': {
+        color:
+          theme.palette.mode === 'light'
+            ? theme.palette.grey[100]
+            : theme.palette.grey[600],
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      boxSizing: 'border-box',
+      width: 22,
+      height: 22,
+    },
+    '& .MuiSwitch-track': {
+      borderRadius: 26 / 2,
+      backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+      opacity: 1,
+      transition: theme.transitions.create(['background-color'], {
+        duration: 500,
+      }),
+    },
+  }));
+
+  const selectStyle = {
+      boxShadow: 'none',
+     '.MuiOutlinedInput-notchedOutline': { border: 0 },
+      "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":{ border: 0 },
+      "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { border: 0 }
+  };
+
   const onChangeHandler = (gMap) => {
     if (
       document.getElementById("start").value ===
@@ -160,91 +228,73 @@ const MapComponent = () => {
 
   return (
     <div>
-      <div className="flex flex-col space-y-5 md:flex-row md:space-y-0 md:space-x-5 md:m-5">
-  <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-5">
-    <div className="mt-1 font-semibold">Source</div>
-    <div className="border border-slate-400 p-1 rounded-sm">
-      <select id="start">
-        <option value="chicago, il">Chicago</option>
-        <option value="st louis, mo">St Louis</option>
-        <option value="joplin, mo">Joplin, MO</option>
-        <option value="oklahoma city, ok">Oklahoma City</option>
-        <option value="amarillo, tx">Amarillo</option>
-        <option value="gallup, nm">Gallup, NM</option>
-        <option value="flagstaff, az">Flagstaff, AZ</option>
-        <option value="winona, az">Winona</option>
-        <option value="kingman, az">Kingman</option>
-        <option value="barstow, ca">Barstow</option>
-        <option value="san bernardino, ca">San Bernardino</option>
-        <option value="los angeles, ca">Los Angeles</option>
-      </select>
-    </div>
-  </div>
-  <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-5">
-    <div className="mt-1 font-semibold">Destination</div>
-    <div className="border border-slate-400 p-1 rounded-sm">
-      <select id="end">
-        <option value="Select destination">Select destination</option>
-        <option value="fairfax, va">Fairfax</option>
-        <option value="st louis, mo">St Louis</option>
-        <option value="joplin, mo">Joplin, MO</option>
-        <option value="oklahoma city, ok">Oklahoma City</option>
-        <option value="amarillo, tx">Amarillo</option>
-        <option value="gallup, nm">Gallup, NM</option>
-        <option value="flagstaff, az">Flagstaff, AZ</option>
-        <option value="winona, az">Winona</option>
-        <option value="kingman, az">Kingman</option>
-        <option value="barstow, ca">Barstow</option>
-        <option value="san bernardino, ca">San Bernardino</option>
-        <option value="los angeles, ca">Los Angeles</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-      {/* <div className="flex space-x-52 m-5">
-        <div className="flex space-x-5">
-          <div className="mt-1 font-semibold">Source</div>
-          <div className="border border-slate-400 p-1 rounded-sm">
-            <select id="start">
-              <option value="chicago, il">Chicago</option>
-              <option value="st louis, mo">St Louis</option>
-              <option value="joplin, mo">Joplin, MO</option>
-              <option value="oklahoma city, ok">Oklahoma City</option>
-              <option value="amarillo, tx">Amarillo</option>
-              <option value="gallup, nm">Gallup, NM</option>
-              <option value="flagstaff, az">Flagstaff, AZ</option>
-              <option value="winona, az">Winona</option>
-              <option value="kingman, az">Kingman</option>
-              <option value="barstow, ca">Barstow</option>
-              <option value="san bernardino, ca">San Bernardino</option>
-              <option value="los angeles, ca">Los Angeles</option>
-            </select>
-          </div>
+      <div className="absolute z-50 flex flex-row flex-wrap justify-start">
+        <div className="m-5 hidden md:block">
+          <img 
+              src='http://localhost:3000/drive_smart_logo.png'
+              alt='Be Safe, Drive Smart'
+              width={150}
+              height={150}
+          />
         </div>
-        <div className="flex space-x-5">
-          <div className="mt-1 font-semibold">Destination</div>
-          <div className="border border-slate-400 p-1 rounded-sm">
-            <select id="end">
-              <option value="Select deatination">Select destination</option>
-              <option value="fairfax, va">Fairfax</option>
-              <option value="st louis, mo">St Louis</option>
-              <option value="joplin, mo">Joplin, MO</option>
-              <option value="oklahoma city, ok">Oklahoma City</option>
-              <option value="amarillo, tx">Amarillo</option>
-              <option value="gallup, nm">Gallup, NM</option>
-              <option value="flagstaff, az">Flagstaff, AZ</option>
-              <option value="winona, az">Winona</option>
-              <option value="kingman, az">Kingman</option>
-              <option value="barstow, ca">Barstow</option>
-              <option value="san bernardino, ca">San Bernardino</option>
-              <option value="los angeles, ca">Los Angeles</option>
-            </select>
+        <div className="flex flex-col">
+          <div className="mt-5 w-80">
+            <FormControl className="w-11/12 bg-white rounded-full">
+              <InputLabel id="start">Source</InputLabel>
+              <Select label="Source" sx={selectStyle}>
+                <MenuItem value={"chicago, il"}>{"Chicago"}</MenuItem>
+                <MenuItem value={"st louis, mo"}>{"St Louis"}</MenuItem>
+                <MenuItem value={"joplin, mo"}>{"Joplin, MO"}</MenuItem>
+                <MenuItem value={"oklahoma city, ok"}>{"Oklahoma City"}</MenuItem>
+                <MenuItem value={"amarillo, tx"}>{"Amarillo"}</MenuItem>
+                <MenuItem value={"flagstaff, az"}>{"Flagstaff, AZ"}</MenuItem>
+                <MenuItem value={"winona, az"}>{"Winona"}</MenuItem>
+                <MenuItem value={"kingman, az"}>{"Kingman"}</MenuItem>
+                <MenuItem value={"barstow, ca"}>{"Barstow"}</MenuItem>
+                <MenuItem value={"san bernardino, ca"}>{"San Bernardino"}</MenuItem>
+                <MenuItem value={"los angeles, ca"}>{"Los Angeles"}</MenuItem>
+              </Select>
+            </FormControl>
           </div>
+          <div className="mt-5 w-80">
+            <FormControl className="w-11/12 bg-white rounded-full">
+              <InputLabel id="end">Destination</InputLabel>
+              <Select label="Destination" sx={selectStyle}>
+                <MenuItem value={"chicago, il"}>{"Chicago"}</MenuItem>
+                <MenuItem value={"st louis, mo"}>{"St Louis"}</MenuItem>
+                <MenuItem value={"joplin, mo"}>{"Joplin, MO"}</MenuItem>
+                <MenuItem value={"oklahoma city, ok"}>{"Oklahoma City"}</MenuItem>
+                <MenuItem value={"amarillo, tx"}>{"Amarillo"}</MenuItem>
+                <MenuItem value={"flagstaff, az"}>{"Flagstaff, AZ"}</MenuItem>
+                <MenuItem value={"winona, az"}>{"Winona"}</MenuItem>
+                <MenuItem value={"kingman, az"}>{"Kingman"}</MenuItem>
+                <MenuItem value={"barstow, ca"}>{"Barstow"}</MenuItem>
+                <MenuItem value={"san bernardino, ca"}>{"San Bernardino"}</MenuItem>
+                <MenuItem value={"los angeles, ca"}>{"Los Angeles"}</MenuItem>
+              </Select>
+            </FormControl>
+          </div> 
         </div>
-      </div> */}
-      <LoadScript googleMapsApiKey="AIzaSyDpjafvu3nSe9ShPUp-hcksde4cRRTv8Ow">
-        <div className="border border-black m-3 p-2">
+        <div className="m-5 flex space-x-5 hidden md:block">
+          <Fab variant="extended">
+            <FormControlLabel control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}/>
+            Drowsy Alert
+          </Fab>
+          <Link to="/heatMap"><Fab variant="extended"><NavigationIcon sx={{ mr: 1 }} />Heat Map</Fab></Link>
+        </div>
+        <div className="m-5 flex min-[330px]:space-x-5 max-[330px]:space-y-5 flex-wrap block md:hidden">
+          <Fab variant="extended" size="small">
+            <FormControlLabel
+                size="small"
+                control={<IOSSwitch sx={{ ml: 1, mr: -1 }} defaultChecked />}
+              />
+            {<span style={{ fontSize: '15px', textWrap: "nowrap" }}>{"Drowsy Alert"}</span>}
+          </Fab>
+          <Link to="/heatMap"><Fab variant="extended" size="small"><NavigationIcon sx={{ mr: 1 }} />{<span style={{ fontSize: '15px', textWrap: "nowrap" }}>{"Heat Map"}</span>}</Fab></Link>
+        </div>
+      </div>
+      <LoadScript googleMapsApiKey="AIzaSyBzTrQvxWyY_tVzTk-lgDbPwQcfOjYy2Yc">
+      <div>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
