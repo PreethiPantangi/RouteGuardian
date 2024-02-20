@@ -11,6 +11,7 @@ import Fab from '@mui/material/Fab';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
+import Alert from '@mui/material/Alert';
 
 const containerStyle = {
   height: "100vh"
@@ -26,6 +27,8 @@ const MapComponent = () => {
   const directionsRendererRef = useRef(null);
   const [multipleRoutes, setMultipleRoutes] = useState([]);
   const [calculatingCrashes, setCalculatingCrashes] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(false);
+  const [loadAlert, setLoadAlert] = useState(false);
   const data = useContext(DataContext);
   const mapData = data.mapData;
   
@@ -56,6 +59,11 @@ const MapComponent = () => {
       };
     }
   }, [gMap]);
+
+  useEffect(() => {
+    if (alertMessage) setLoadAlert(true);
+    else setLoadAlert(false)
+  }, [alertMessage]);
 
   const calculateAndDisplayRoute = (getMap) => {
     if (!directionsServiceRef.current || !directionsRendererRef.current) return;
@@ -143,55 +151,78 @@ const MapComponent = () => {
   };
 
   const IOSSwitch = styled((props) => (
-    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
-  ))(({ theme }) => ({
-    width: 42,
-    height: 26,
-    padding: 0,
-    '& .MuiSwitch-switchBase': {
+    <Switch 
+      focusVisibleClassName=".Mui-focusVisible" disableRipple 
+      onChange={(event) => {
+        if (event.target.checked) {
+          const chatSocket = new WebSocket('ws://localhost:8080');
+
+          chatSocket.onopen = function() {
+            console.log("websocket connected");
+          };
+
+          chatSocket.onmessage = function(e) {
+              const message = JSON.parse(e.data);
+              console.log("message : ", message);
+              if (message === "SLEEPING" || message === "DROWSY") setAlertMessage(message)
+              else setAlertMessage(false)
+          };
+
+          chatSocket.onclose = function(e) {
+              console.error('Chat socket closed unexpectedly');
+          };
+
+        }
+      }}
+      {...props} />
+    ))(({ theme }) => ({
+      width: 42,
+      height: 26,
       padding: 0,
-      margin: 2,
-      transitionDuration: '300ms',
-      '&.Mui-checked': {
-        transform: 'translateX(16px)',
-        color: '#fff',
-        '& + .MuiSwitch-track': {
-          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
-          opacity: 1,
-          border: 0,
+      '& .MuiSwitch-switchBase': {
+        padding: 0,
+        margin: 2,
+        transitionDuration: '300ms',
+        '&.Mui-checked': {
+          transform: 'translateX(16px)',
+          color: '#fff',
+          '& + .MuiSwitch-track': {
+            backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+            opacity: 1,
+            border: 0,
+          },
+          '&.Mui-disabled + .MuiSwitch-track': {
+            opacity: 0.5,
+          },
+        },
+        '&.Mui-focusVisible .MuiSwitch-thumb': {
+          color: '#33cf4d',
+          border: '6px solid #fff',
+        },
+        '&.Mui-disabled .MuiSwitch-thumb': {
+          color:
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[600],
         },
         '&.Mui-disabled + .MuiSwitch-track': {
-          opacity: 0.5,
+          opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
         },
       },
-      '&.Mui-focusVisible .MuiSwitch-thumb': {
-        color: '#33cf4d',
-        border: '6px solid #fff',
+      '& .MuiSwitch-thumb': {
+        boxSizing: 'border-box',
+        width: 22,
+        height: 22,
       },
-      '&.Mui-disabled .MuiSwitch-thumb': {
-        color:
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[100]
-            : theme.palette.grey[600],
+      '& .MuiSwitch-track': {
+        borderRadius: 26 / 2,
+        backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+        opacity: 1,
+        transition: theme.transitions.create(['background-color'], {
+          duration: 500,
+        }),
       },
-      '&.Mui-disabled + .MuiSwitch-track': {
-        opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
-      },
-    },
-    '& .MuiSwitch-thumb': {
-      boxSizing: 'border-box',
-      width: 22,
-      height: 22,
-    },
-    '& .MuiSwitch-track': {
-      borderRadius: 26 / 2,
-      backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
-      opacity: 1,
-      transition: theme.transitions.create(['background-color'], {
-        duration: 500,
-      }),
-    },
-  }));
+    }));
 
   const selectStyle = {
       boxShadow: 'none',
@@ -228,6 +259,7 @@ const MapComponent = () => {
 
   return (
     <div>
+      {loadAlert && <Alert variant="filled" severity="error">Wake up! You are {alertMessage}</Alert>}
       <div className="absolute z-50 flex flex-row flex-wrap justify-start">
         <div className="m-5 hidden md:block">
           <img 
@@ -284,9 +316,7 @@ const MapComponent = () => {
         </div>
         <div className="m-5 flex min-[330px]:space-x-5 max-[330px]:space-y-5 flex-wrap block md:hidden">
           <Fab variant="extended" size="small">
-            <FormControlLabel
-                size="small"
-                control={<IOSSwitch sx={{ ml: 1, mr: -1 }} defaultChecked />}
+            <FormControlLabel size="small" control={<IOSSwitch sx={{ ml: 1, mr: -1 }} defaultChecked={false}/>}
               />
             {<span style={{ fontSize: '15px', textWrap: "nowrap" }}>{"Drowsy Alert"}</span>}
           </Fab>

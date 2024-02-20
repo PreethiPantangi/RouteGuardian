@@ -1,0 +1,25 @@
+{
+  "name": "websocket_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PreethiPantangi/RouteGuardian.git"
+  },
+  "keywords": [
+    "socket"
+  ],
+  "author": "kevlar",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/PreethiPantangi/RouteGuardian/issues"
+  },
+  "homepage": "https://github.com/PreethiPantangi/RouteGuardian#readme",
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
